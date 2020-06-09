@@ -42,7 +42,22 @@
             </h2>
         </div>
 
-        <script src="n"
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script>
+            $(document).ready(function ()   {
+                $('h1').prepend('<span class="node">-</span>');
+                $('h1').click(
+                    function () {
+                        var node = $(this).children('.node');
+                        $(this).next().fadeToggle(500, 'swing',
+                            function () {
+                                var mark = node.text();
+                                mark = mark === '-' ? '+' : '-';
+                                node.text(mark);
+                            });
+                        })
+                    });
+        </script>
     </body>
 </html>
  
